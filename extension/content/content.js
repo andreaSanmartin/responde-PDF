@@ -23,14 +23,15 @@
       :host { all: initial; }
       * { box-sizing: border-box; }
       .rp {
-        --quemado: rgb(194, 87, 27);
-        --calabaza: rgb(224, 122, 63);
-        --cafe: rgb(92, 58, 33);
-        --caramelo: rgb(184, 134, 11);
-        --crema: rgb(245, 230, 211);
-        --profundo: rgb(62, 39, 35);
+        /* Paleta otoñal (ver assets/palette.jpg) */
+        --quemado: rgb(194, 87, 27);    /* #C2571B */
+        --calabaza: rgb(224, 122, 63);  /* #E07A3F */
+        --mostaza: rgb(232, 163, 61);   /* #E8A33D */
+        --amarillo: rgb(242, 200, 121); /* #F2C879 */
+        --crema: rgb(248, 232, 200);    /* #F8E8C8 */
+        --cafe: rgb(138, 75, 42);       /* #8A4B2A */
         font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-        color: var(--profundo);
+        color: var(--cafe);
       }
       .rp-boton {
         position: fixed;
@@ -40,10 +41,10 @@
         padding: 6px 12px 6px 6px;
         border: none;
         border-radius: 999px;
-        background: linear-gradient(135deg, var(--calabaza), var(--quemado));
+        background: linear-gradient(135deg, var(--quemado), var(--cafe));
         color: var(--crema);
         font: 600 13px/1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-        box-shadow: 0 4px 14px rgba(62, 39, 35, .35);
+        box-shadow: 0 4px 14px rgba(138, 75, 42, .4);
         cursor: pointer;
         animation: aparecer .15s ease-out;
       }
@@ -56,9 +57,9 @@
         width: min(420px, calc(100vw - 32px));
         max-height: min(560px, calc(100vh - 32px));
         background: var(--crema);
-        border: 1px solid rgba(92, 58, 33, .25);
+        border: 1px solid rgba(138, 75, 42, .3);
         border-radius: 14px;
-        box-shadow: 0 18px 50px rgba(62, 39, 35, .35);
+        box-shadow: 0 18px 50px rgba(138, 75, 42, .35);
         overflow: hidden;
         animation: aparecer .18s ease-out;
       }
@@ -78,13 +79,13 @@
         border: none; background: transparent; color: var(--crema);
         font-size: 18px; line-height: 1; cursor: pointer; padding: 2px 6px; border-radius: 6px;
       }
-      .rp-cabecera button:hover { background: rgba(245, 230, 211, .18); }
+      .rp-cabecera button:hover { background: rgba(248, 232, 200, .18); }
       .rp-cuerpo { padding: 12px 14px 14px; overflow-y: auto; }
       .rp-pregunta {
         margin: 0 0 12px;
         padding: 8px 10px;
-        border-left: 3px solid var(--calabaza);
-        background: rgba(224, 122, 63, .1);
+        border-left: 3px solid var(--mostaza);
+        background: rgba(242, 200, 121, .3);
         border-radius: 0 8px 8px 0;
         font-style: italic;
         color: var(--cafe);
@@ -100,23 +101,23 @@
       }
       .rp-fuentes { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
       .rp-fuentes li {
-        padding: 8px 10px; background: #fff8ef;
-        border: 1px solid rgba(184, 134, 11, .35); border-radius: 8px;
+        padding: 8px 10px; background: #fffaf0;
+        border: 1px solid rgba(232, 163, 61, .5); border-left: 4px solid var(--mostaza); border-radius: 8px;
       }
       .rp-pdf { font-weight: 600; color: var(--cafe); word-break: break-word; }
-      .rp-pagina { color: var(--caramelo); font-weight: 600; }
+      .rp-pagina { color: var(--quemado); font-weight: 600; }
       .rp-fuentes blockquote { margin: 4px 0 0; font-size: 12.5px; color: var(--cafe); opacity: .85; }
       .rp-sin-fuentes { font-size: 12.5px; color: var(--cafe); opacity: .8; margin: 0; }
-      .rp-aviso { margin-top: 10px; font-size: 12px; color: var(--caramelo); }
+      .rp-aviso { margin-top: 10px; font-size: 12px; color: var(--quemado); }
       .rp-error {
         padding: 10px 12px; border-radius: 8px;
         background: rgba(194, 87, 27, .12); border: 1px solid rgba(194, 87, 27, .4);
-        color: var(--profundo);
+        color: var(--cafe);
       }
       .rp-cargando { display: flex; align-items: center; gap: 10px; color: var(--cafe); }
       .rp-spinner {
         width: 18px; height: 18px; border-radius: 50%;
-        border: 3px solid rgba(224, 122, 63, .3); border-top-color: var(--quemado);
+        border: 3px solid var(--amarillo); border-top-color: var(--quemado);
         animation: girar .8s linear infinite;
       }
       .rp-acciones { display: flex; justify-content: flex-end; margin-top: 12px; }

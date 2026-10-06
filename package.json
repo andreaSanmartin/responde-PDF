@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "vendor:pdfjs": "node scripts/copy-pdfjs.js",
-    "icons": "node scripts/generate-icons.js",
+    "icons": "python scripts/build-icons.py",
     "backend:dev": "npm --prefix backend run dev",
     "docker:build": "docker build -f docker/Dockerfile -t respondepdf/backend:latest .",
     "docker:push": "docker push respondepdf/backend:latest"

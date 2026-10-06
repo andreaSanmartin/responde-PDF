@@ -85,6 +85,7 @@ respondepdf/
 ├── docker/
 │   ├── Dockerfile        # Solo para CONSTRUIR la imagen
 │   └── docker-compose.yml# Para el usuario final: descarga y ejecuta
+├── assets/               # Imagen original del icono y paleta de colores
 └── scripts/              # Generador de iconos y copia de pdf.js
 ```
 
@@ -98,6 +99,7 @@ Las capturas son marcadores de posición; añade las imágenes reales en `docs/s
 
 ## Paleta de colores
 
+<<<<<<< HEAD
 | Color | HEX | RGB |
 |-------|-----|-----|
 | 🟧 Naranja quemado | `#C2571B` | `(194, 87, 27)` |
@@ -106,6 +108,22 @@ Las capturas son marcadores de posición; añade las imágenes reales en `docs/s
 | 🟨 Caramelo | `#B8860B` | `(184, 134, 11)` |
 | ⬜ Crema | `#F5E6D3` | `(245, 230, 211)` |
 | ⬛ Café profundo | `#3E2723` | `(62, 39, 35)` |
+=======
+<p align="center"><img src="assets/palette.jpg" alt="Paleta otoñal de RespondePDF" width="480"></p>
+
+| Muestra | Color | HEX | RGB | Uso en la extensión |
+| :---: | --- | --- | --- | --- |
+| ![#C2571B](https://img.shields.io/badge/-%20%20%20%20%20%20-C2571B) | Naranja quemado | `#C2571B` | `(194, 87, 27)` | Cabeceras y botones (degradado), títulos, enlaces, errores |
+| ![#E07A3F](https://img.shields.io/badge/-%20%20%20%20%20%20-E07A3F) | Naranja calabaza | `#E07A3F` | `(224, 122, 63)` | Borde de la zona de carga, barra de progreso, foco |
+| ![#E8A33D](https://img.shields.io/badge/-%20%20%20%20%20%20-E8A33D) | Mostaza | `#E8A33D` | `(232, 163, 61)` | Pestaña activa, acentos de la lista y de las fuentes, borde del icono |
+| ![#F2C879](https://img.shields.io/badge/-%20%20%20%20%20%20-F2C879) | Amarillo suave | `#F2C879` | `(242, 200, 121)` | Contador, resaltados, fondo de las citas |
+| ![#F8E8C8](https://img.shields.io/badge/-%20%20%20%20%20%20-F8E8C8) | Crema | `#F8E8C8` | `(248, 232, 200)` | Fondo del popup y de la ventana flotante, fondo del icono |
+| ![#8A4B2A](https://img.shields.io/badge/-%20%20%20%20%20%20-8A4B2A) | Café | `#8A4B2A` | `(138, 75, 42)` | Texto principal, barra de pestañas, final del degradado |
+
+### Icono
+
+El icono parte de [`assets/icon-source.jpg`](assets/icon-source.jpg). El script [`scripts/build-icons.py`](scripts/build-icons.py) lo encuadra, ajusta su fondo al crema de la paleta, mejora el contraste y la nitidez y genera las versiones de 16, 48 y 128 px con esquinas redondeadas.
+>>>>>>> dfa372d (Feat: change icon)
 
 ## Para el desarrollador: construir y publicar la imagen
 
@@ -154,7 +172,7 @@ npm run dev          # http://localhost:3000 con recarga automática
 ```bash
 npm install            # en la raíz: instala pdfjs-dist
 npm run vendor:pdfjs   # actualiza extension/lib/pdfjs desde node_modules
-npm run icons          # regenera los iconos 16/48/128 px
+npm run icons          # regenera los iconos 16/48/128 px desde assets/icon-source.jpg (requiere Python 3 + Pillow)
 ```
 
 ## API del backend

@@ -1,15 +1,16 @@
-/* Estilos del popup de RespondePDF â€” paleta otoÃ±al */
+/* Estilos del popup de RespondePDF — paleta otoñal (ver assets/palette.jpg) */
 
 :root {
-  --quemado: rgb(194, 87, 27);    /* #C2571B */
-  --calabaza: rgb(224, 122, 63);  /* #E07A3F */
-  --cafe: rgb(92, 58, 33);        /* #5C3A21 */
-  --caramelo: rgb(184, 134, 11);  /* #B8860B */
-  --crema: rgb(245, 230, 211);    /* #F5E6D3 */
-  --profundo: rgb(62, 39, 35);    /* #3E2723 */
-  --papel: #fffaf3;
-  --borde: rgba(92, 58, 33, 0.2);
+  --quemado: rgb(194, 87, 27);    /* #C2571B naranja quemado */
+  --calabaza: rgb(224, 122, 63);  /* #E07A3F naranja calabaza */
+  --mostaza: rgb(232, 163, 61);   /* #E8A33D mostaza */
+  --amarillo: rgb(242, 200, 121); /* #F2C879 amarillo suave */
+  --crema: rgb(248, 232, 200);    /* #F8E8C8 crema */
+  --cafe: rgb(138, 75, 42);       /* #8A4B2A café */
+  --papel: #fffaf0;               /* crema muy claro para superficies */
+  --borde: rgba(138, 75, 42, 0.22);
   --radio: 10px;
+  --degradado: linear-gradient(135deg, var(--quemado), var(--cafe));
 }
 
 * { box-sizing: border-box; }
@@ -19,7 +20,7 @@ body {
   min-height: 460px;
   margin: 0;
   background: var(--crema);
-  color: var(--profundo);
+  color: var(--cafe);
   font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -29,28 +30,28 @@ body {
   align-items: center;
   gap: 10px;
   padding: 14px 16px;
-  background: linear-gradient(135deg, var(--quemado), var(--cafe));
+  background: var(--degradado);
   color: var(--crema);
 }
 .cabecera img { border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); }
 .cabecera div { flex: 1; }
 .cabecera h1 { margin: 0; font-size: 17px; letter-spacing: 0.2px; }
-.cabecera p { margin: 0; font-size: 12px; opacity: 0.85; }
+.cabecera p { margin: 0; font-size: 12px; opacity: 0.9; }
 
 .estado {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(245, 230, 211, 0.4);
-  box-shadow: 0 0 0 2px rgba(245, 230, 211, 0.25);
+  background: rgba(248, 232, 200, 0.4);
+  box-shadow: 0 0 0 2px rgba(248, 232, 200, 0.25);
 }
 .estado.ok { background: #8fbf5a; }
-.estado.error { background: #f2c14e; }
+.estado.error { background: var(--amarillo); }
 
-/* ---------- PestaÃ±as ---------- */
+/* ---------- Pestañas ---------- */
 .pestanas {
   display: flex;
-  background: var(--profundo);
+  background: var(--cafe);
 }
 .pestana {
   flex: 1;
@@ -58,7 +59,7 @@ body {
   border: none;
   border-bottom: 3px solid transparent;
   background: transparent;
-  color: rgba(245, 230, 211, 0.7);
+  color: rgba(248, 232, 200, 0.8);
   font-weight: 600;
   font-size: 13px;
   line-height: 1;
@@ -66,15 +67,15 @@ body {
   cursor: pointer;
 }
 .pestana:hover { color: var(--crema); }
-.pestana.activa { color: var(--crema); border-bottom-color: var(--calabaza); }
+.pestana.activa { color: var(--crema); border-bottom-color: var(--mostaza); }
 .contador {
   display: inline-block;
   min-width: 18px;
   padding: 2px 5px;
   margin-left: 4px;
   border-radius: 999px;
-  background: var(--calabaza);
-  color: var(--crema);
+  background: var(--amarillo);
+  color: var(--cafe);
   font-size: 11px;
 }
 
@@ -97,10 +98,10 @@ main { padding: 14px 16px 16px; }
   transition: background 0.15s, border-color 0.15s, transform 0.15s;
 }
 .zona-soltar:hover,
-.zona-soltar:focus-visible { background: #fff3e4; outline: none; border-color: var(--quemado); }
-.zona-soltar.arrastrando { background: rgba(224, 122, 63, 0.15); border-color: var(--quemado); transform: scale(1.01); }
+.zona-soltar:focus-visible { background: rgba(242, 200, 121, 0.25); outline: none; border-color: var(--quemado); }
+.zona-soltar.arrastrando { background: rgba(242, 200, 121, 0.45); border-color: var(--quemado); transform: scale(1.01); }
 .zona-icono { font-size: 26px; }
-.zona-soltar span:last-child { font-size: 12px; opacity: 0.8; }
+.zona-soltar span:last-child { font-size: 12px; opacity: 0.85; }
 
 /* ---------- Progreso ---------- */
 .progreso { margin-top: 10px; }
@@ -112,8 +113,8 @@ main { padding: 14px 16px 16px; }
   color: var(--cafe);
 }
 .progreso-texto span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.progreso-barra { height: 6px; margin-top: 4px; border-radius: 999px; background: rgba(92, 58, 33, 0.15); overflow: hidden; }
-#progreso-relleno { height: 100%; width: 0; background: linear-gradient(90deg, var(--caramelo), var(--calabaza)); transition: width 0.15s; }
+.progreso-barra { height: 6px; margin-top: 4px; border-radius: 999px; background: rgba(138, 75, 42, 0.15); overflow: hidden; }
+#progreso-relleno { height: 100%; width: 0; background: linear-gradient(90deg, var(--mostaza), var(--calabaza)); transition: width 0.15s; }
 
 /* ---------- Lista de PDFs ---------- */
 .lista-pdfs {
@@ -131,14 +132,15 @@ main { padding: 14px 16px 16px; }
   gap: 10px;
   padding: 8px 10px;
   border: 1px solid var(--borde);
+  border-left: 4px solid var(--mostaza);
   border-radius: var(--radio);
   background: var(--papel);
 }
-.pdf.inactivo { opacity: 0.55; }
+.pdf.inactivo { opacity: 0.55; border-left-color: var(--amarillo); }
 .pdf input[type="checkbox"] { accent-color: var(--quemado); width: 16px; height: 16px; margin: 0; cursor: pointer; }
 .pdf-info { flex: 1; min-width: 0; }
 .pdf-nombre { display: block; font-weight: 600; color: var(--cafe); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.pdf-meta { font-size: 11.5px; color: var(--caramelo); }
+.pdf-meta { font-size: 11.5px; color: var(--cafe); opacity: 0.8; }
 .pdf-eliminar {
   border: none;
   background: transparent;
@@ -150,10 +152,10 @@ main { padding: 14px 16px 16px; }
 }
 .pdf-eliminar:hover { background: rgba(194, 87, 27, 0.12); }
 
-.vacio { margin: 14px 0 0; text-align: center; font-size: 13px; color: var(--cafe); opacity: 0.7; }
+.vacio { margin: 14px 0 0; text-align: center; font-size: 13px; color: var(--cafe); opacity: 0.75; }
 .vacio[hidden] { display: none; }
 
-.pie-lista { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; color: var(--cafe); opacity: 0.85; }
+.pie-lista { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; color: var(--cafe); opacity: 0.9; }
 
 /* ---------- Formularios ---------- */
 .etiqueta { display: block; margin: 0 0 4px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--quemado); }
@@ -169,19 +171,19 @@ textarea {
   border: 1px solid var(--borde);
   border-radius: 8px;
   background: var(--papel);
-  color: var(--profundo);
+  color: var(--cafe);
   font: inherit;
 }
 textarea { resize: vertical; min-height: 70px; margin-bottom: 8px; }
 input:focus,
-textarea:focus { outline: 2px solid rgba(224, 122, 63, 0.5); border-color: var(--calabaza); }
+textarea:focus { outline: 2px solid var(--amarillo); border-color: var(--calabaza); }
 
 .boton {
   width: 100%;
   padding: 9px 14px;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--calabaza), var(--quemado));
+  background: var(--degradado);
   color: var(--crema);
   font-weight: 700;
   font-size: 14px;
@@ -189,7 +191,7 @@ textarea:focus { outline: 2px solid rgba(224, 122, 63, 0.5); border-color: var(-
   font-family: inherit;
   cursor: pointer;
 }
-.boton:hover { filter: brightness(1.06); }
+.boton:hover { filter: brightness(1.08); }
 .boton:disabled { opacity: 0.6; cursor: progress; }
 .boton.secundario {
   width: auto;
@@ -198,6 +200,7 @@ textarea:focus { outline: 2px solid rgba(224, 122, 63, 0.5); border-color: var(-
   border: 1px solid var(--quemado);
   font-weight: 600;
 }
+.boton.secundario:hover { background: rgba(242, 200, 121, 0.35); filter: none; }
 .boton-texto { border: none; background: none; color: var(--quemado); font-weight: 600; font-size: 12px; line-height: 1; font-family: inherit; cursor: pointer; padding: 4px; }
 .boton-texto:hover { text-decoration: underline; }
 .boton-texto[hidden] { display: none; }
@@ -219,13 +222,13 @@ textarea:focus { outline: 2px solid rgba(224, 122, 63, 0.5); border-color: var(-
 .resultado ul { margin: 0 0 8px; padding-left: 20px; }
 .resultado .rp-titulo { margin: 12px 0 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--quemado); }
 .rp-fuentes { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
-.rp-fuentes li { padding: 6px 8px; background: #fff3e4; border: 1px solid rgba(184, 134, 11, 0.35); border-radius: 8px; }
+.rp-fuentes li { padding: 6px 8px; background: rgba(242, 200, 121, 0.25); border: 1px solid rgba(232, 163, 61, 0.5); border-radius: 8px; }
 .rp-pdf { font-weight: 600; color: var(--cafe); }
-.rp-pagina { color: var(--caramelo); font-weight: 600; }
-.rp-fuentes blockquote { margin: 4px 0 0; font-size: 12px; opacity: 0.85; }
-.rp-sin-fuentes { font-size: 12px; opacity: 0.8; }
+.rp-pagina { color: var(--quemado); font-weight: 600; }
+.rp-fuentes blockquote { margin: 4px 0 0; font-size: 12px; opacity: 0.9; }
+.rp-sin-fuentes { font-size: 12px; opacity: 0.85; }
 .rp-error { color: var(--quemado); font-weight: 600; margin: 0; }
-.rp-aviso { font-size: 12px; color: var(--caramelo); }
+.rp-aviso { font-size: 12px; color: var(--quemado); }
 
 /* ---------- Aviso temporal ---------- */
 .aviso {
@@ -235,10 +238,10 @@ textarea:focus { outline: 2px solid rgba(224, 122, 63, 0.5); border-color: var(-
   bottom: 12px;
   padding: 9px 12px;
   border-radius: 8px;
-  background: var(--profundo);
+  background: var(--cafe);
   color: var(--crema);
   font-size: 13px;
-  box-shadow: 0 6px 18px rgba(62, 39, 35, 0.35);
+  box-shadow: 0 6px 18px rgba(138, 75, 42, 0.35);
 }
 .aviso.error { background: var(--quemado); }
 .aviso[hidden] { display: none; }
