@@ -1,0 +1,17 @@
+{
+  "name": "respondepdf",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Extensión de navegador para responder preguntas sobre tus PDFs con Gemini",
+  "license": "MIT",
+  "scripts": {
+    "vendor:pdfjs": "node scripts/copy-pdfjs.js",
+    "icons": "node scripts/generate-icons.js",
+    "backend:dev": "npm --prefix backend run dev",
+    "docker:build": "docker build -f docker/Dockerfile -t respondepdf/backend:latest .",
+    "docker:push": "docker push respondepdf/backend:latest"
+  },
+  "devDependencies": {
+    "pdfjs-dist": "^4.10.38"
+  }
+}

@@ -1,0 +1,5 @@
+# Solo se necesita el backend para construir la imagen
+*
+!backend/package.json
+!backend/package-lock.json
+!backend/src/**

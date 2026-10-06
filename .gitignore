@@ -1,0 +1,29 @@
+# Dependencias
+node_modules/
+
+# Registros
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Variables de entorno y secretos (nunca subir API keys)
+.env
+.env.*
+!.env.example
+
+# Empaquetados de la extensión
+*.zip
+*.crx
+*.pem
+*.xpi
+web-ext-artifacts/
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Nota: extension/lib/pdfjs/ SÍ se versiona (pdf.js incluido localmente)

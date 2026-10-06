@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>RespondePDF</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="cabecera">
+    <img src="../icons/icon48.png" alt="" width="32" height="32">
+    <div>
+      <h1>RespondePDF</h1>
+      <p>Respuestas basadas en tus PDFs</p>
+    </div>
+    <span id="estado-backend" class="estado" title="Estado del backend"></span>
+  </header>
+
+  <nav class="pestanas" role="tablist">
+    <button role="tab" class="pestana activa" data-panel="panel-pdfs" aria-selected="true">PDFs <span id="contador" class="contador">0</span></button>
+    <button role="tab" class="pestana" data-panel="panel-preguntar" aria-selected="false">Preguntar</button>
+    <button role="tab" class="pestana" data-panel="panel-ajustes" aria-selected="false">Ajustes</button>
+  </nav>
+
+  <main>
+    <!-- Panel: gestión de PDFs -->
+    <section id="panel-pdfs" class="panel activo" role="tabpanel">
+      <label id="zona-soltar" class="zona-soltar" tabindex="0">
+        <input id="selector-archivos" type="file" accept="application/pdf,.pdf" multiple hidden>
+        <span class="zona-icono">📚</span>
+        <strong>Arrastra tus PDFs aquí</strong>
+        <span>o haz clic para seleccionarlos</span>
+      </label>
+
+      <div id="progreso" class="progreso" hidden>
+        <div class="progreso-texto"><span id="progreso-nombre"></span><span id="progreso-pct"></span></div>
+        <div class="progreso-barra"><div id="progreso-relleno"></div></div>
+      </div>
+
+      <ul id="lista-pdfs" class="lista-pdfs"></ul>
+      <p id="lista-vacia" class="vacio">Aún no has subido ningún PDF.</p>
+
+      <div class="pie-lista">
+        <small>Solo se consultan los PDFs marcados.</small>
+        <button id="borrar-todos" class="boton-texto" type="button" hidden>Eliminar todos</button>
+      </div>
+    </section>
+
+    <!-- Panel: pregunta directa -->
+    <section id="panel-preguntar" class="panel" role="tabpanel" hidden>
+      <form id="form-pregunta">
+        <label for="pregunta" class="etiqueta">Tu pregunta</label>
+        <textarea id="pregunta" rows="3" placeholder="Ej.: ¿Cuál es la fecha límite de entrega del proyecto?" required></textarea>
+        <button id="boton-preguntar" class="boton" type="submit">Preguntar</button>
+      </form>
+      <div id="resultado" class="resultado" hidden></div>
+      <p class="ayuda">💡 También puedes seleccionar texto en cualquier página y pulsar <b>Buscar en RespondePDF</b>.</p>
+    </section>
+
+    <!-- Panel: configuración -->
+    <section id="panel-ajustes" class="panel" role="tabpanel" hidden>
+      <form id="form-ajustes">
+        <label for="backend-url" class="etiqueta">URL del backend</label>
+        <div class="fila">
+          <input id="backend-url" type="url" placeholder="http://localhost:3000" required>
+          <button id="probar-backend" class="boton secundario" type="button">Probar</button>
+        </div>
+
+        <label for="api-key" class="etiqueta">API key de Gemini</label>
+        <div class="fila">
+          <input id="api-key" type="password" placeholder="AIza…" autocomplete="off" spellcheck="false">
+          <button id="ver-key" class="boton secundario" type="button" title="Mostrar u ocultar">👁</button>
+        </div>
+        <p class="ayuda">
+          Consíguela gratis en
+          <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>.
+          Se guarda solo en este navegador y se envía a tu backend en cada consulta.
+        </p>
+
+        <button class="boton" type="submit">Guardar</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="aviso" class="aviso" role="status" hidden></div>
+
+  <script src="../lib/format.js"></script>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
